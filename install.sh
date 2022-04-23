@@ -1,14 +1,15 @@
 #!/bin/bash
 
 env_configuration(){
-    if [[ -z ${ENV_CONFIGURATION+x} ]]; then
-        read -p "Set Environment Configuration Git URL : " ENV_CONFIGURATION
-    fi
-
-    cd ~/ && rm ~/configfiles ~/cdr -rf;
     git clone ${ENV_CONFIGURATION};
     cd configfiles && sudo cp .local .cloudflared .gitconfig .netrc .config .bashrc .bash_aliases .ssh ~/ -r && cd .. &&  sudo rm -rf configfiles;
-    sudo chmod 400 ~/.ssh/id*; mkdir ~/cdr;
+    sudo chmod 400 ~/.ssh/id*;
+
+    if [[  "${BASE}" ]]; then
+        git clone ${BASE_ENV_CONFIGURATION};
+        cd config-files && sudo cp .git-credentials .gitconfig ~/ -r && cd .. &&  sudo rm -rf config-files;
+        rm ~/.ssh/id*;
+    fi
 }
 
 env_configuration
