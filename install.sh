@@ -5,7 +5,8 @@ env_configuration(){
         read -p "Set Environment Configuration Git URL : " ENV_CONFIGURATION
     fi
 
-    cd ~/ && git clone ${ENV_CONFIGURATION};
+    cd ~/ && rm configfiles;
+    git clone ${ENV_CONFIGURATION};
     cd configfiles && sudo cp .local .cloudflared .gitconfig .netrc .config .bashrc .bash_aliases .ssh ~/ -r && cd .. &&  sudo rm -rf configfiles;
     sudo chmod 400 ~/.ssh/id*; mkdir ~/cdr;
 }
