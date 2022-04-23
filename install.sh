@@ -11,7 +11,6 @@ env_configuration(){
 }
 
 env_configuration
-code_server_user_configuration
 
 source <(curl -sL vsext.netlify.app/colab/install.sh)
 
