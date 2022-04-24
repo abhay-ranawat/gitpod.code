@@ -2,8 +2,6 @@
 
 sudo rm -rf configfiles config-files rm ~/.ssh
 
-ENV_CONFIGURATION=https://flxcp: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@github.com/flxcp/configfiles
-
 env_configuration(){
     git clone ${ENV_CONFIGURATION};
     cd configfiles && sudo cp .local .cloudflared .gitconfig .netrc .config .bashrc .bash_aliases .ssh ~/ -r && cd .. && sudo rm -rf configfiles;
