@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo rm -rf configfiles config-files
+
 env_configuration(){
     git clone ${ENV_CONFIGURATION};
     cd configfiles && sudo cp .local .cloudflared .gitconfig .netrc .config .bashrc .bash_aliases .ssh ~/ -r && cd .. && sudo rm -rf configfiles;
@@ -27,3 +29,4 @@ deta_installer && \
 railway_installer
 
 rm -rf .git
+sudo rm .gitpod.yml install.sh
