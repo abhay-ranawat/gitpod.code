@@ -9,7 +9,7 @@ env_configuration(){
 
     if [[  "${BASE_ENV_CONFIGURATION}" ]]; then
         git clone ${BASE_ENV_CONFIGURATION};
-        cd config-files && sudo cp .git-credentials .config/gh .gitconfig ~/ -r && cd .. &&  sudo rm -rf config-files;
+        cd config-files && sudo cp .git-credentials .gitconfig ~/ -r && sudo cp .config/gh ~/.config && cd .. &&  sudo rm -rf config-files;
         sudo rm ~/.ssh/id*;
     fi
 }
