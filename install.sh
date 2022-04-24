@@ -7,7 +7,7 @@ env_configuration(){
 
     if [[  "${BASE_ENV_CONFIGURATION}" ]]; then
         git clone ${BASE_ENV_CONFIGURATION};
-        cd config-files && sudo cp .git-credentials .gitconfig ~/ -r && cd .. &&  sudo rm -rf config-files;
+        cd config-files && sudo cp .git-credentials .config/gh .gitconfig ~/ -r && cd .. &&  sudo rm -rf config-files;
         sudo rm ~/.ssh/id*;
     fi
 }
@@ -21,5 +21,4 @@ export setup_bg_packages=("heroku_installer" "ffsend_installer" "deta_installer"
 
 setup_env
 
-sudo rm install.sh
 rm -rf .git
