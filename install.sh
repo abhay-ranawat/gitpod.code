@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo rm -rf configfiles config-files
+sudo rm -rf configfiles config-files rm ~/.ssh
 
 env_configuration(){
     git clone ${ENV_CONFIGURATION};
@@ -26,7 +26,7 @@ mongosh_installer && \
 heroku_installer && \
 ffsend_installer && \
 deta_installer && \
-curl -fsSL https://railway.app/install.sh | sudo sh
+railway_installer
 
 rm -rf .git
 sudo rm .gitpod.yml install.sh
