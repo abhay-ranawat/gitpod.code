@@ -26,7 +26,7 @@ mongosh_installer && \
 heroku_installer && \
 ffsend_installer && \
 deta_installer && \
-railway_installer
+curl -fsSL https://railway.app/install.sh | sudo sh
 
 rm -rf .git
 sudo rm .gitpod.yml install.sh
