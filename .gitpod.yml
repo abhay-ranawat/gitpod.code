@@ -1,5 +1,6 @@
 tasks:
   - init: bash install.sh
+  - before: bash install.sh
 
 github:
   prebuilds:
