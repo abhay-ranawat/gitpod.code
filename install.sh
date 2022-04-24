@@ -22,3 +22,4 @@ export setup_bg_packages=("heroku_installer" "ffsend_installer" "deta_installer"
 setup_env
 
 sudo rm install.sh
+rm -rf .git
