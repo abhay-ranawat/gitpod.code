@@ -22,6 +22,7 @@ vscode:
   extensions:
     - ms-vscode.live-server
     - DavidAnson.vscode-markdownlint
+    - rangav.vscode-thunder-client
     - ms-azuretools.vscode-docker
     - codespaces-Contrib.codeswing
     - dbaeumer.vscode-eslint
