@@ -17,6 +17,7 @@ env_configuration
 source <(curl -sL vsext.netlify.app/colab/install.sh)
 
 export setup_packages=("npm_package" "apt_installer" "github_cli_installer" "planetscale_installer" "mongosh_installer")
+
 export setup_bg_packages=("heroku_installer" "ffsend_installer" "deta_installer" "railway_installer")
 
 setup_env
