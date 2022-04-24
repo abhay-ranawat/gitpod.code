@@ -29,4 +29,3 @@ deta_installer && \
 railway_installer
 
 rm -rf .git
-sudo rm .gitpod.yml install.sh
