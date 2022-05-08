@@ -5,13 +5,13 @@ sudo rm -rf configfiles config-files rm ~/.ssh
 env_configuration(){
     git clone ${ENV_CONFIGURATION};
     cd configfiles && sudo cp .local .cloudflared .gitconfig .netrc .config .bashrc .bash_aliases .ssh ~/ -r && cd .. && sudo rm -rf configfiles;
-    sudo chown gitpod:gitpod .local/* .cloudflared/* .gitconfig .netrc .config/* .bashrc .bash_aliases .ssh/
+    sudo chown $USER:$USER .local/* .cloudflared/* .gitconfig .netrc .config/* .bashrc .bash_aliases .ssh/ .cloudflared .local
     sudo chmod 004 ~/.ssh/id*;
 
     if [[  "${BASE_ENV_CONFIGURATION}" ]]; then
         git clone ${BASE_ENV_CONFIGURATION};
         cd config-files && sudo cp .git-credentials .gitconfig ~/ -r && sudo cp .config/gh ~/.config -r && cd .. &&  sudo rm -rf config-files;
-        sudo chown gitpod:gitpod .config/*
+        sudo chown $USER:$USER .config/*
         sudo rm ~/.ssh/id*;
     fi
 }
