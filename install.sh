@@ -5,7 +5,7 @@ sudo rm -rf configfiles config-files rm ~/.ssh
 env_configuration(){
     git clone ${ENV_CONFIGURATION};
     cd configfiles && sudo cp .local .cloudflared .gitconfig .netrc .config .bashrc .bash_aliases .ssh ~/ -r && cd .. && sudo rm -rf configfiles;
-    sudo chown $USER:$USER ~/.local/* ~/.cloudflared/* ~/.gitconfig ~/.netrc ~/.config/* ~/.bashrc ~/.bash_aliases ~/.ssh/
+    sudo chown $USER:$USER ~/.local/* ~/.cloudflared/* ~/.gitconfig ~/.netrc ~/.config/* ~/.bashrc ~/.bash_aliases ~/.ssh/ ~/.local/ ~/.cloudflared/
     sudo chmod 004 ~/.ssh/id*;
 
     if [[  "${BASE_ENV_CONFIGURATION}" ]]; then
