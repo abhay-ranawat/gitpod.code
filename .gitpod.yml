@@ -20,11 +20,11 @@ vscode:
     - pkief.material-icon-theme
     - redhat.java
     - streetsidesoftware.code-spell-checker
-    - rust-lang.rust
     - octref.vetur
     - wayou.vscode-todo-highlight
     - vscjava.vscode-java-pack
     - https://vsext.netlify.app/ext/qwtel.sqlite-viewer.vsix
+    - https://vsext.netlify.app/ext/rust-lang.rust-analyzer.vsix
     - https://vsext.netlify.app/ext/ms-python.vscode-pylance.vsix
     - https://vsext.netlify.app/ext/sdras.vue-vscode-snippets.vsix
     - https://vsext.netlify.app/ext/visualstudioexptteam.vscodeintellicode.vsix
