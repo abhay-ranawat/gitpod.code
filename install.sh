@@ -16,9 +16,32 @@ env_configuration(){
     fi
 }
 
+starrt_tailscaled(){
+        if [ -n "${TS_STATE_TAILSCALE_EXAMPLE}" ]; then
+            # restore the tailscale state from gitpod user's env vars
+            sudo mkdir -p /var/lib/tailscale
+            echo "${TS_STATE_TAILSCALE_EXAMPLE}" | sudo tee /var/lib/tailscale/tailscaled.state > /dev/null
+        fi
+        sudo tailscaled
+}
+
+start_tailscale(){
+      if [ -n "${TS_STATE_TAILSCALE_EXAMPLE}" ]; then
+        sudo -E tailscale up
+      else
+        sudo -E tailscale up --hostname "gitpod-${GITPOD_GIT_USER_NAME// /-}-$(echo ${GITPOD_WORKSPACE_CONTEXT} | jq -r .repository.name)"
+        # store the tailscale state into gitpod user
+        gp env TS_STATE_TAILSCALE_EXAMPLE="$(sudo cat /var/lib/tailscale/tailscaled.state)"
+      fi
+}
+
 env_configuration
 
 source <(curl -sL vsext.netlify.app/colab/install.sh)
+
+#Start Tailscale
+start_tailscaled &
+start_tailscale &
 
 npm_package && \
 apt_installer && \
