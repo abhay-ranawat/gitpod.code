@@ -16,7 +16,7 @@ env_configuration(){
     fi
 }
 
-starrt_tailscaled(){
+start_tailscaled(){
         if [ -n "${TS_STATE_TAILSCALE_EXAMPLE}" ]; then
             # restore the tailscale state from gitpod user's env vars
             sudo mkdir -p /var/lib/tailscale
