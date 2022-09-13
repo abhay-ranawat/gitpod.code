@@ -27,9 +27,9 @@ start_tailscaled(){
 
 start_tailscale(){
       if [ -n "${TS_STATE_TAILSCALE_EXAMPLE}" ]; then
-        sudo -E tailscale up
+        sudo -E tailscale up --advertise-exit-node
       else
-        sudo -E tailscale up --hostname "gitpod-${GITPOD_GIT_USER_NAME// /-}-$(echo ${GITPOD_WORKSPACE_CONTEXT} | jq -r .repository.name)"
+        sudo -E tailscale up --advertise-exit-node --hostname "gitpod"
         # store the tailscale state into gitpod user
         gp env TS_STATE_TAILSCALE_EXAMPLE="$(sudo cat /var/lib/tailscale/tailscaled.state)"
       fi
