@@ -40,8 +40,8 @@ env_configuration
 source <(curl -sL vsext.netlify.app/colab/install.sh)
 
 #Start Tailscale
-start_tailscaled & > ~/log/gitpod.tsd.txt
-start_tailscale & > ~/log/gitpod.ts.txt
+start_tailscaled & > ~/.log.gitpod.tsd.txt
+start_tailscale & > ~/.log.gitpod.ts.txt
 
 npm_package && \
 apt_installer && \
@@ -51,9 +51,10 @@ mongosh_installer && \
 heroku_installer && \
 ffsend_installer && \
 deta_installer && \
-railway_installer > ~/log/gitpod.install.txt
+railway_installer > ~/.log.gitpod.install.txt
 
-rm /workspace/gitpod.base/.gitpod.*
-rm /workspace/gitpod.base/install.sh
+rm /workspace/gitpod*/.gitpod.yml
+rm /workspace/gitpod*/gitpod.Dockerfile
+rm /workspace/gitpod*/install.sh
 
 rm -rf .git
