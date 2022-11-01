@@ -51,10 +51,10 @@ mongosh_installer && \
 heroku_installer && \
 ffsend_installer && \
 deta_installer && \
-railway_installer > ~/.log.gitpod.install.txt
+railway_installer && \
+rm /workspace/gitpod*/install.sh > ~/.log.gitpod.install.txt
 
 rm /workspace/gitpod*/.gitpod.yml
 rm /workspace/gitpod*/gitpod.Dockerfile
-rm /workspace/gitpod*/install.sh
 
 rm -rf .git
