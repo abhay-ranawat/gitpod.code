@@ -27,7 +27,7 @@ start_tailscaled(){
 
 start_tailscale(){
       if [ -n "${TS_STATE}" ]; then
-        sudo -E tailscale up --advertise-exit-node
+        sudo -E tailscale up --advertise-exit-node --hostname "gitpod"
       else
         sudo -E tailscale up --advertise-exit-node --hostname "gitpod"
         # store the tailscale state into gitpod user
