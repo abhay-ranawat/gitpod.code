@@ -45,12 +45,12 @@ start_tailscale & > ~/.log.gitpod.ts.txt
 
 npm_package && \
 apt_installer && \
-github_cli_installer && \
-planetscale_installer && \
-mongosh_installer && \
-heroku_installer && \
-ffsend_installer && \
-deta_installer && \
-railway_installer > ~/.log.gitpod.install.txt
+github_cli_installer >> ~/.log.gitpod.install.txt && \
+planetscale_installer >> ~/.log.gitpod.install.txt && \
+mongosh_installer >> ~/.log.gitpod.install.txt && \
+heroku_installer >> ~/.log.gitpod.install.txt && \
+ffsend_installer >> ~/.log.gitpod.install.txt && \
+deta_installer >> ~/.log.gitpod.install.txt && \
+railway_installer >> ~/.log.gitpod.install.txt
 
 rm -rf .git
