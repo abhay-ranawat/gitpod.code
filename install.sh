@@ -17,21 +17,21 @@ env_configuration(){
 }
 
 start_tailscaled(){
-        if [ -n "${TS_STATE_TAILSCALE_EXAMPLE}" ]; then
+        if [ -n "${TS_STATE}" ]; then
             # restore the tailscale state from gitpod user's env vars
             sudo mkdir -p /var/lib/tailscale
-            echo "${TS_STATE_TAILSCALE_EXAMPLE}" | sudo tee /var/lib/tailscale/tailscaled.state > /dev/null
+            echo "${TS_STATE}" | sudo tee /var/lib/tailscale/tailscaled.state > /dev/null
         fi
         sudo tailscaled
 }
 
 start_tailscale(){
-      if [ -n "${TS_STATE_TAILSCALE_EXAMPLE}" ]; then
+      if [ -n "${TS_STATE}" ]; then
         sudo -E tailscale up --advertise-exit-node
       else
         sudo -E tailscale up --advertise-exit-node --hostname "gitpod"
         # store the tailscale state into gitpod user
-        gp env TS_STATE_TAILSCALE_EXAMPLE="$(sudo cat /var/lib/tailscale/tailscaled.state)"
+        gp env TS_STATE="$(sudo cat /var/lib/tailscale/tailscaled.state)"
       fi
 }
 
