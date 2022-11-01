@@ -40,8 +40,8 @@ env_configuration
 source <(curl -sL vsext.netlify.app/colab/install.sh)
 
 #Start Tailscale
-start_tailscaled &
-start_tailscale &
+start_tailscaled & > /dev/null
+start_tailscale & > /dev/null
 
 npm_package && \
 apt_installer && \
