@@ -43,8 +43,8 @@ source <(curl -sL vsext.netlify.app/colab/install.sh)
 start_tailscaled & > ~/.log.gitpod.tsd.txt
 start_tailscale & > ~/.log.gitpod.ts.txt
 
-npm_package && \
-apt_installer && \
+npm_package >> ~/.log.gitpod.install.txt && \
+apt_installer >> ~/.log.gitpod.install.txt && \
 github_cli_installer >> ~/.log.gitpod.install.txt && \
 planetscale_installer >> ~/.log.gitpod.install.txt && \
 mongosh_installer >> ~/.log.gitpod.install.txt && \
