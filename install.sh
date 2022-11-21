@@ -3,14 +3,14 @@
 sudo rm -rf configfiles config-files rm ~/.ssh
 
 env_configuration(){
-    git clone ${ENV_CONFIGURATION};
-    sudo chown -R $USER:$(id -gn) configfiles; 
-    cd configfiles && sudo cp .local .cloudflared .gitconfig .netrc .config .bashrc .bash_aliases .ssh ~/ -r && cd .. && sudo rm -rf configfiles;
+    git clone ${ENV_CONFIGURATION} && \
+    sudo chown -R $USER:$(id -gn) configfiles && \
+    cd configfiles && sudo cp .local .cloudflared .gitconfig .netrc .config .bashrc .bash_aliases .ssh ~/ -r && cd .. && sudo rm -rf configfiles && \
     sudo chmod 004 ~/.ssh/id*;
 
     if [[  "${BASE_ENV_CONFIGURATION}" ]]; then
-        git clone ${BASE_ENV_CONFIGURATION};
-        sudo chown -R $USER:$(id -gn) config-files; 
+        git clone ${BASE_ENV_CONFIGURATION} && \
+        sudo chown -R $USER:$(id -gn) config-files && \
         cd config-files && sudo cp .deta .git-credentials .gitconfig ~/ -r && sudo cp .local/share/com.vercel.cli ~/.local/share/ -r && sudo cp .config/gh ~/.config -r && cd .. &&  sudo rm -rf config-files;
     fi
 }
