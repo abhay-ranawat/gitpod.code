@@ -4,13 +4,13 @@ sudo rm -rf configfiles config-files rm ~/.ssh
 
 env_configuration(){
     git clone ${ENV_CONFIGURATION} && \
-    #sudo chown -R $USER:$(id -gn) configfiles && \
+    sudo chown -R $USER:$(id -gn) configfiles && \
     cd configfiles && sudo cp .local .cloudflared .gitconfig .netrc .config .bashrc .bash_aliases .ssh ~/ -r && cd .. && sudo rm -rf configfiles && \
     sudo chmod 004 ~/.ssh/id*;
 
     if [[  "${BASE_ENV_CONFIGURATION}" ]]; then
         git clone ${BASE_ENV_CONFIGURATION} && \
-        #sudo chown -R $USER:$(id -gn) config-files && \
+        sudo chown -R $USER:$(id -gn) config-files && \
         cd config-files && sudo cp .deta .git-credentials .gitconfig ~/ -r && sudo cp .local/share/com.vercel.cli ~/.local/share/ -r && sudo cp .config/gh ~/.config -r && cd .. &&  sudo rm -rf config-files;
     fi
 }
@@ -26,9 +26,9 @@ start_tailscaled(){
 
 start_tailscale(){
       if [ -n "${TS_STATE}" ]; then
-        sudo -E tailscale up --advertise-exit-node --hostname "gitpod" > /dev/null
+        sudo -E tailscale up --advertise-exit-node --ssh --hostname "gitpod" > /dev/null
       else
-        sudo -E tailscale up --advertise-exit-node --hostname "gitpod" > /dev/null
+        sudo -E tailscale up --advertise-exit-node --ssh --hostname "gitpod" > /dev/null
         # store the tailscale state into gitpod user
         gp env TS_STATE="$(sudo cat /var/lib/tailscale/tailscaled.state)"
       fi
